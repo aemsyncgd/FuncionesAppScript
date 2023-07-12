@@ -1,5 +1,6 @@
 # Función de extracción de datos de un sitio web, en Google Sheet
 
+```
 function extraerInformacion() {
   var hoja = SpreadsheetApp.getActiveSheet();
   var filaInicial = 2;
@@ -20,6 +21,7 @@ function extraerInformacion() {
     hoja.getRange(fila, 8).setValue(keywords);
   }
 }
+```
 
 ## Utilizando la librería Cheerio
 
@@ -34,4 +36,10 @@ Una vez que hayas agregado la biblioteca Cheerio a tu proyecto, puedes utilizarl
 
 ## Resultado
 
-Esta función utiliza la biblioteca Cheerio para analizar el contenido HTML de cada URL y extraer el título, la meta-descripción y la palabra clave. Luego, los valores extraídos se colocan en las columnas correspondientes (F, G y H).
+Esta función utiliza la biblioteca Cheerio para analizar el contenido HTML de cada URL y extraer el título, la meta-descripción y la palabra clave. Luego, los valores extraídos se colocan en las columnas correspondientes (F, G y H ).
+
+    hoja.getRange(fila, 6).setValue(title);
+    hoja.getRange(fila, 7).setValue(description);
+    hoja.getRange(fila, 8).setValue(keywords);
+
+Aquí, puede cambiar las celdas donde se obtendrá el resultado. Esto va de acuerdo a las necesidades de uso.
