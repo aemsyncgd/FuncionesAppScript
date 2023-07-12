@@ -25,10 +25,10 @@ function extraerInformacion() {
 
 Para utilizar Cheerio, primero debes agregar la biblioteca a tu proyecto de Google Apps Script. Para hacer esto, sigue estos pasos:
 
-    - Abre tu proyecto de Google Apps Script.
-    - Haz clic en el menú "Recursos" y selecciona "Bibliotecas".
-    - En el cuadro "Agregar biblioteca", ingresa el siguiente identificador de biblioteca: 1ReeQ6WO8kKNxoaA_O0XEQ589cIrRvEBA9qcWpNqdOP17i47u6N9M5Xh0 y haz clic en "Agregar".
-    - En el cuadro "Versión", selecciona la versión más reciente y haz clic en "Guardar".
+- Abre tu proyecto de Google Apps Script.
+- Haz clic en el menú "Recursos" y selecciona "Bibliotecas".
+- En el cuadro "Agregar biblioteca", ingresa el siguiente identificador de biblioteca: 1ReeQ6WO8kKNxoaA_O0XEQ589cIrRvEBA9qcWpNqdOP17i47u6N9M5Xh0 y haz clic en "Agregar".
+- En el cuadro "Versión", selecciona la versión más reciente y haz clic en "Guardar".
 
 Una vez que hayas agregado la biblioteca Cheerio a tu proyecto, puedes utilizarla para analizar el HTML de cada URL y extraer el título, la meta-descripción y la palabra clave. Aquí te dejo un ejemplo de cómo podríamos hacerlo:
 
