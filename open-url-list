@@ -1,6 +1,6 @@
 Para abrir una lista de urls en una columna, es posible automatizarlo con una función de AppScript, de la siguiente manera:
 
-'''''''''
+```
 function openUrlsInNewTabs() {
   // Obtiene la hoja de cálculo activa
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -34,5 +34,5 @@ function openUrlsInNewTabs() {
   
   SpreadsheetApp.getUi().showModelessDialog(ui, 'Abriendo URLs');
 }
-''''''''''
+```
 Cambiando el rango A2:A25 según sea necesario
