@@ -11,6 +11,7 @@ Este repositorio contiene una serie de funciones de Google Apps Script que se pu
     - reemplazarTexto(textoAnterior, textoNuevo): reemplaza todas las instancias de textoAnterior con textoNuevo en el documento actual.
     - generarTabla(datos): crea una tabla en el documento actual con los datos proporcionados.
     - enviarCorreo(destinatario, asunto, cuerpo): envía un correo electrónico a destinatario con el asunto y cuerpo especificados.
+    - Entre otras funciones desarrolladas según la tarea a resolver
 
 ## Cómo utilizar estas funciones
 
