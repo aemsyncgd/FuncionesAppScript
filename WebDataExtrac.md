@@ -43,3 +43,60 @@ Esta función utiliza la biblioteca Cheerio para analizar el contenido HTML de c
     hoja.getRange(fila, 8).setValue(keywords);
 
 Aquí, puede cambiar las celdas donde se obtendrá el resultado. Esto va de acuerdo a las necesidades de uso.
+
+
+## Actualización
+
+En algunos sitios web, donde el código para el caso de alguno de estos items a extraer, el CMS agrega espacios, o saltos de línea, los cuales hacen que no sea posible detectar correctamente el contenido de las etiquetas consultadas.
+
+A continuación, una modificación de la función, para mejorar la extracción de títulos.
+
+```
+function extraerInformacion() {
+  var hoja = SpreadsheetApp.getActiveSheet();
+  var filaInicial = 1;
+  var ultimaFila = hoja.getLastRow();
+  
+  for (var fila = filaInicial; fila <= ultimaFila; fila++) {
+    var url = hoja.getRange(fila, 1).getValue();
+    
+    try {
+      var contenido = obtenerContenido(url);
+      var title = extraerTitulo(contenido);
+      var description = extraerMetaContenido(contenido, "description");
+      var keywords = extraerMetaContenido(contenido, "keywords");
+      
+      hoja.getRange(fila, 2).setValue(title);
+      hoja.getRange(fila, 3).setValue(description);
+      hoja.getRange(fila, 4).setValue(keywords);
+    } catch (error) {
+      Logger.log("Error al procesar la URL: " + url + ". Error: " + error.message);
+    }
+  }
+}
+
+function obtenerContenido(url) {
+  var response = UrlFetchApp.fetch(url);
+  if (response.getResponseCode() === 200) {
+    return response.getContentText();
+  } else {
+    throw new Error("No se pudo obtener el contenido de la URL. Código de respuesta: " + response.getResponseCode());
+  }
+}
+
+function extraerTitulo(contenido) {
+  var $ = Cheerio.load(contenido);
+  var title = $("title").html();  // Obtén el contenido HTML de la etiqueta title
+  
+  // Limpia el título eliminando caracteres especiales y espacios adicionales
+  title = title.replace(/<title>/i, '').replace(/<\/title>/i, '').trim();
+  
+  return title;
+}
+
+function extraerMetaContenido(contenido, metaName) {
+  var $ = Cheerio.load(contenido);
+  return $("meta[name='" + metaName + "']").attr("content") || "";
+}
+
+```
