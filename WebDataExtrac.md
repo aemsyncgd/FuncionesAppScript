@@ -15,10 +15,13 @@ function extraerInformacion() {
     var title = $("title").text();
     var description = $("meta[name='description']").attr("content") || "";
     var keywords = $("meta[name='keywords']").attr("content") || "";
+    // Extraer el h1 dentro del div con clase product__title
+    var h1Title = $('.product__title > h1').text() || "";
     
     hoja.getRange(fila, 6).setValue(title);
     hoja.getRange(fila, 7).setValue(description);
     hoja.getRange(fila, 8).setValue(keywords);
+    hoja.getRange(fila, 9).setValue(h1Title);
   }
 }
 ```
